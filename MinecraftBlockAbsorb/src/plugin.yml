@@ -1,0 +1,5 @@
+name: MinecraftBlockAbsorb
+main: JFed9.MinecraftBlockAbsorb.Main
+version: 1.0
+description: Minecraft, but you absorb the blocks under you
+api-version: 1.16

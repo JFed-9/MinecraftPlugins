@@ -1,0 +1,22 @@
+name: MinecraftMiniChallenges
+main: JFed9.MinecraftMiniChallenges.Main
+version: 1.0
+description: Small challenges in Minecraft
+api-version: 1.16
+commands:
+  addPlayer:
+    usage: /miniAddPlayer [Player]
+    aliases: ['/miniAddPlayer','/addPlayer']
+    description: Adds a player to the scoreboard
+  startMiniChallenges:
+    usage: /startMiniChallenges
+    aliases: ['/startMiniChallenges']
+    description: Starts the game
+  gameOver:
+    usage: /gameOver
+    aliases: ['/gameOver']
+    description: Ends the game and declares a winner
+  skip:
+    usage: /skip
+    aliases: ['/skip']
+    description: Skips the current challenge

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MinecraftBlockAbsorb:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MinecraftBlockAbsorb_jar</output-path>
+    <root id="archive" name="MinecraftBlockAbsorb.jar">
+      <element id="module-output" name="MinecraftBlockAbsorb" />
+      <element id="extracted-dir" path="D:/Games/Minecraft Server/Spigot Build Files/spigot-1.16.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

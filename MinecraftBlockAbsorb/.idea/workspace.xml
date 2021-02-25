@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MinecraftBlockAbsorb:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08cbdabf-e152-4249-8a62-be248c053a1e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1oxpU7g3dKIPrf4NPahwfPDnyaU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="D:/Games/Minecraft Server/Spigot Build Files/spigot-1.16.5.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37816092" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="JFed9.MinecraftBlockAbsorb" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jacks\IdeaProjects\MinecraftBlockAbsorb\src" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08cbdabf-e152-4249-8a62-be248c053a1e" name="Default Changelist" comment="" />
+      <created>1614238108779</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614238108779</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="765" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1614238623100">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="765" y="210" key="#com.intellij.ide.util.MemberChooser/0.0.1920.999/1920.56.1440.860@0.0.1920.999" timestamp="1614238623100" />
+    <state x="1106" y="245" key="FileChooserDialogImpl" timestamp="1614239709307">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="1106" y="245" key="FileChooserDialogImpl/0.0.1920.999/1920.56.1440.860@0.0.1920.999" timestamp="1614239709307" />
+    <state x="458" y="64" key="SettingsEditor" timestamp="1614239868293">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="458" y="64" key="SettingsEditor/0.0.1920.999/1920.56.1440.860@0.0.1920.999" timestamp="1614239868293" />
+    <state x="623" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1614238918314">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="623" y="214" width="672" height="678" key="search.everywhere.popup/0.0.1920.999/1920.56.1440.860@0.0.1920.999" timestamp="1614238918314" />
+  </component>
+</project>
