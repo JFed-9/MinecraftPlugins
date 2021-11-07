@@ -15,9 +15,13 @@ public class ChallengeCodes {
         END_ENTER = 1010,
         BUILD_SNOWMAN = 1011,
         MUSIC_DISK_GET = 1012,
-        SPAWN_WITHER = 1013,
+        KILL_WITHER = 1013,
         DIORITE_BREAK = 1014,
-        EAT_STEAK = 1015;
+        EAT_STEAK = 1015,
+        GET_COPPER_BLOCK = 1016,
+        ENTER_GEODE = 1017,
+        GOAT_MASSACRE = 1018,
+        AXOLOTL_CAPTURE = 1019;
 
     //Used for a timer if needed
     //public static final int ticks_per_second = 20;

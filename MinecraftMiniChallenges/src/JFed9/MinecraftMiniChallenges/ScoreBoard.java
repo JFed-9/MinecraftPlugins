@@ -8,6 +8,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
@@ -15,13 +16,14 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.*;
 
 import java.util.*;
+import java.util.function.Function;
 
 import static JFed9.MinecraftMiniChallenges.ChallengeCodes.*;
 
 public class ScoreBoard implements MiniChallenge.ChallengeCompleteListener {
-    private Map<Player,Integer> scores = new HashMap<>();
+    private final Map<Player,Integer> scores = new HashMap<>();
     private List<Integer> challenges;
-    private Map<Integer,String> flags;
+    private final Map<Integer,String> flags = new HashMap<>();
 
     private int current_task;
     private Listeners listeners;
@@ -39,27 +41,37 @@ public class ScoreBoard implements MiniChallenge.ChallengeCompleteListener {
 
     public void initialize(Plugin plugin) {
         this.plugin = plugin;
-        rand = new Random();
+        rand = new Random(new Date().getTime());
         rand.setSeed(new Date().getTime());
         listeners = new Listeners();
         listeners.registerListener(this);
 
         challenges = new ArrayList<>();
-        challenges.add(NETHER_ENTER);
-        challenges.add(ENDER_EYE_GET);
+
+        //Trivial
+        challenges.add(EAT_STEAK);
+        //Easy
         challenges.add(FIND_DIAMONDS);
-        challenges.add(ENCHANT);
-        challenges.add(ANCIENT_DEBRIS);
-        challenges.add(KILL_BLAZE);
-        challenges.add(KILL_GHAST);
+        challenges.add(NETHER_ENTER);
         challenges.add(REACH_256);
         challenges.add(NETHER_ROOF);
+        challenges.add(BUILD_SNOWMAN);
+        challenges.add(DIORITE_BREAK);
+        challenges.add(GET_COPPER_BLOCK);
+        //Medium
+        challenges.add(ENCHANT);
+        challenges.add(KILL_BLAZE);
+        challenges.add(KILL_GHAST);
+        challenges.add(MUSIC_DISK_GET);
+        challenges.add(KILL_WITHER);
+        challenges.add(ENTER_GEODE);
+        challenges.add(GOAT_MASSACRE);
+        challenges.add(AXOLOTL_CAPTURE);
+        //Hard
+        challenges.add(ENDER_EYE_GET);
+        challenges.add(ANCIENT_DEBRIS);
         challenges.add(GHAST_CAPTURE);
         challenges.add(END_ENTER);
-        challenges.add(BUILD_SNOWMAN);
-        challenges.add(MUSIC_DISK_GET);
-        challenges.add(SPAWN_WITHER);
-        challenges.add(EAT_STEAK);
 
         ScoreboardManager manager = plugin.getServer().getScoreboardManager();
         if (manager == null) return;
@@ -77,6 +89,7 @@ public class ScoreBoard implements MiniChallenge.ChallengeCompleteListener {
         if (challenges.size()==0) gameOver();
         else {
             current_task = challenges.get(rand.nextInt(challenges.size()));
+            listeners.getPrepWork(current_task).apply(null);
             setScoreboardText();
             //Start timer
         }
@@ -136,6 +149,7 @@ public class ScoreBoard implements MiniChallenge.ChallengeCompleteListener {
         VehicleEnterEvent.getHandlerList().unregister(listeners);
         CreatureSpawnEvent.getHandlerList().unregister(listeners);
         PlayerItemConsumeEvent.getHandlerList().unregister(listeners);
+        PlayerBucketFillEvent.getHandlerList().unregister(listeners);
     }
 
     public void setFlag(int flag, String data) {

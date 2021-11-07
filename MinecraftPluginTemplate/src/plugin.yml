@@ -1,0 +1,5 @@
+name: MinecraftPlugin
+main: JFed9.Project.Main
+version: 1.0
+description: Minecraft, but different
+api-version: 1.16
