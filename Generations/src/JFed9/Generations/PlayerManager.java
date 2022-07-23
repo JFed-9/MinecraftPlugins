@@ -12,7 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.Plugin;
 
@@ -51,6 +51,7 @@ public class PlayerManager implements CommandExecutor, Listener {
         
         //  -------------- PREPARE PLAYER NAMES -------------
         if (playerStatsFile.exists()) {
+            Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
             System.out.println("Found existing colors file, gathering info");
             // Grab data from log file and initialize maps
             try {
@@ -168,7 +169,8 @@ public class PlayerManager implements CommandExecutor, Listener {
             System.out.println("Setting Spawn");
             World world = location.getWorld();
             if (world != null)
-                world.getBlockAt(location).setType(Material.BLACK_BED);
+                world.setSpawnLocation(location);
+//                world.getBlockAt(location).setType(Material.BLACK_BED);
             p.setBedSpawnLocation(location);
 
             System.out.println("Changing ChatColor");
@@ -214,9 +216,9 @@ public class PlayerManager implements CommandExecutor, Listener {
         ChatColor currChatColor = playerNames.get(name);
         System.out.println("Player used to be: " + currChatColor);
         System.out.println("Reference:");
-        System.out.println("Green: " + ChatColor.GREEN);
-        System.out.println("Yellow: " + ChatColor.YELLOW);
-        System.out.println("Red: " + ChatColor.RED);
+//        System.out.println("Green: " + ChatColor.GREEN);
+//        System.out.println("Yellow: " + ChatColor.YELLOW);
+//        System.out.println("Red: " + ChatColor.RED);
         if (currChatColor == ChatColor.GREEN)
             currChatColor = ChatColor.YELLOW;
         else if (currChatColor == ChatColor.YELLOW)
@@ -240,7 +242,8 @@ public class PlayerManager implements CommandExecutor, Listener {
             System.out.println("Finding highest block");
             Block b = event.getEntity().getWorld().getHighestBlockAt(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
             System.out.println("Setting Spawn");
-            b.getLocation().getBlock().setType(Material.BLACK_BED);
+            b.getWorld().setSpawnLocation(b.getLocation());
+//            b.getLocation().getBlock().setType(Material.BLACK_BED);
             event.getEntity().setBedSpawnLocation(b.getLocation());
         }
         else
@@ -251,7 +254,7 @@ public class PlayerManager implements CommandExecutor, Listener {
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onLogin(PlayerLoginEvent event) {
         System.out.println("Player has joined");
         if (playerNames.containsKey(event.getPlayer().getName()))
             System.out.println("Player " + event.getPlayer().getName() + " should be " + playerNames.get(event.getPlayer().getName()));
@@ -259,12 +262,12 @@ public class PlayerManager implements CommandExecutor, Listener {
         event.getPlayer().setPlayerListName(playerNames.getOrDefault(event.getPlayer().getName(), ChatColor.GREEN) + event.getPlayer().getName());
     }
 
-    @EventHandler
-    public void protectBeds(BlockBreakEvent event) {
-        if (event.getBlock().getType().equals(Material.BLACK_BED)) {
-            event.setCancelled(true);
-            event.getPlayer().sendMessage("This bed cannot be destroyed. You fool");
-        }
-    }
+//    @EventHandler
+//    public void protectBeds(BlockBreakEvent event) {
+//        if (event.getBlock().getType().equals(Material.BLACK_BED)) {
+//            event.setCancelled(true);
+//            event.getPlayer().sendMessage("This bed cannot be destroyed. You fool");
+//        }
+//    }
     
 }

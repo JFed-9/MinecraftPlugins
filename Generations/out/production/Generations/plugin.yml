@@ -1,8 +1,8 @@
-name: MinecraftPlugin
+name: Generations
 main: JFed9.Generations.Main
 version: 1.0
 description: Minecraft, but after 3 deaths you start a new colony
-api-version: 1.16
+api-version: 1.19
 commands:
   startGames:
     usage: /startGames
