@@ -10,30 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="419fa094-94b3-4bf3-ab62-ea4a8fb4c55a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MinecraftBlockAbsorb/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/src/JFed9/Project/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/src/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToolSaver/ToolSaver.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToolSaver/src/JFed9/ToolSaver/BlockBreakListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftBlockAbsorb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftBlockAbsorb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/spigot_1_16_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CustomAITest/CustomAITest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/CustomEntityZombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/Listeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/NMSUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EnchantmentRecycling/EnchantmentRecycling.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EnchantmentRecycling/src/JFed9/Project/Listeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/artifacts/MinecraftPluginTemplate_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/libraries/spigot_1_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/libraries/spigot_1_18_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/template-meta.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/Generations.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/PlayerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generations/src/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinecraftOlympicJumper/MinecraftOlympicJumper.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinecraftOlympicJumper/src/JFed9/Project/Listeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MinecraftMiniChallenges.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MinecraftMiniChallenges.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MinecraftMiniChallenges.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MinecraftMiniChallenges.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ChallengeCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ChallengeCodes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ChallengeWithListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ChallengeWithListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/Listeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/Listeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ScoreBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/JFed9/MinecraftMiniChallenges/ScoreBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinecraftMiniChallenges/META-INF/MinecraftMiniChallenges.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/Listeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/Listeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ScoreBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ScoreBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +113,14 @@
       <option name="presentableId" value="Default" />
       <updated>1608654075157</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added new challenges, organized into difficulties">
+      <created>1636317226475</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636317226475</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -125,26 +139,41 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added new challenges, organized into difficulties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new challenges, organized into difficulties" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1131" y="579" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1636316841348">
       <screen x="0" y="0" width="2560" height="1379" />
     </state>
     <state x="1131" y="579" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636316841348" />
-    <state x="865" y="285" key="CommitChangelistDialog2" timestamp="1636317186859">
+    <state x="865" y="285" key="CommitChangelistDialog2" timestamp="1636317223505">
       <screen x="0" y="0" width="2560" height="1379" />
     </state>
-    <state x="865" y="285" key="CommitChangelistDialog2/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636317186859" />
-    <state x="1081" y="513" key="FileChooserDialogImpl" timestamp="1636317043833">
+    <state x="865" y="285" key="CommitChangelistDialog2/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636317223505" />
+    <state x="1081" y="513" key="FileChooserDialogImpl" timestamp="1639709403870">
       <screen x="0" y="0" width="2560" height="1379" />
     </state>
+    <state x="1081" y="513" key="FileChooserDialogImpl/0.0.2560.1379/2560.349.1920.1019@0.0.2560.1379" timestamp="1639709403870" />
     <state x="1081" y="513" key="FileChooserDialogImpl/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636317043833" />
-    <state x="781" y="333" key="SettingsEditor" timestamp="1636317090290">
+    <state x="781" y="333" key="SettingsEditor" timestamp="1639709398067">
       <screen x="0" y="0" width="2560" height="1379" />
     </state>
+    <state x="781" y="333" key="SettingsEditor/0.0.2560.1379/2560.349.1920.1019@0.0.2560.1379" timestamp="1639709398067" />
     <state x="781" y="333" key="SettingsEditor/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636317090290" />
-    <state x="981" y="514" key="com.intellij.ide.util.TipDialog" timestamp="1636316819917">
+    <state x="872" y="423" key="Vcs.Push.Dialog.v2" timestamp="1636317229530">
       <screen x="0" y="0" width="2560" height="1379" />
     </state>
+    <state x="872" y="423" key="Vcs.Push.Dialog.v2/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636317229530" />
+    <state x="981" y="514" key="com.intellij.ide.util.TipDialog" timestamp="1639709303049">
+      <screen x="0" y="0" width="2560" height="1379" />
+    </state>
+    <state x="981" y="514" key="com.intellij.ide.util.TipDialog/0.0.2560.1379/2560.349.1920.1019@0.0.2560.1379" timestamp="1639709303049" />
     <state x="981" y="514" key="com.intellij.ide.util.TipDialog/0.0.2560.1379/2560.349.1920.1050@0.0.2560.1379" timestamp="1636316819917" />
+    <state x="662" y="311" key="new project wizard" timestamp="1639709334246">
+      <screen x="0" y="0" width="2560" height="1379" />
+    </state>
+    <state x="662" y="311" key="new project wizard/0.0.2560.1379/2560.349.1920.1019@0.0.2560.1379" timestamp="1639709334246" />
   </component>
 </project>

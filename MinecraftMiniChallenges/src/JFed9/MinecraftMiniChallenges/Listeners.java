@@ -70,6 +70,8 @@ public class Listeners extends ChallengeWithListener {
                return "Kill 10 goats";
            case AXOLOTL_CAPTURE:
                return "Capture an axolotl in a bucket";
+           case KILL_SALMON:
+               return "Kill a Salmon";
            case 0:
                return "";
            default:
@@ -82,13 +84,12 @@ public class Listeners extends ChallengeWithListener {
         switch (code) {
             case NETHER_ENTER:
             case GET_COPPER_BLOCK:
-                return 5;
-            case ENDER_EYE_GET:
-            case KILL_WITHER:
-                return 100;
             case FIND_DIAMONDS:
             case AXOLOTL_CAPTURE:
                 return 15;
+            case ENDER_EYE_GET:
+            case KILL_WITHER:
+                return 100;
             case ENCHANT:
             case GOAT_MASSACRE:
                 return 20;
@@ -112,6 +113,8 @@ public class Listeners extends ChallengeWithListener {
                 return 10;
             case MUSIC_DISK_GET:
                 return 18;
+            case KILL_SALMON:
+                return 8;
             default:
                 return 0;
         }
@@ -131,19 +134,19 @@ public class Listeners extends ChallengeWithListener {
                 };
             case KILL_BLAZE:
                 return Void -> {
+                    World world = null;
+                    for (World w : Bukkit.getWorlds()) {
+                        if (w.getEnvironment().equals(World.Environment.NETHER)) {
+                            world = w;
+                            break;
+                        }
+                    }
+                    if (world == null) {
+                        Bukkit.broadcastMessage("Nether has not been loaded");
+                        return null;
+                    }
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         Location loc;
-                        World world = null;
-                        for (World w : Bukkit.getWorlds()) {
-                            if (w.getEnvironment().equals(World.Environment.NETHER)) {
-                                world = w;
-                                break;
-                            }
-                        }
-                        if (world == null) {
-                            Bukkit.broadcastMessage("Nether has not been loaded");
-                            return null;
-                        }
                         if (p.getWorld().getEnvironment() == World.Environment.NETHER)
                             loc = p.getLocation();
                         else

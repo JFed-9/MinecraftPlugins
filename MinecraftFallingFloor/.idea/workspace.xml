@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a73aa6d5-731b-489c-b760-f1acc93a9ab4" name="Default Changelist" comment="" />
+    <list default="true" id="a73aa6d5-731b-489c-b760-f1acc93a9ab4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinecraftOlympicJumper/src/JFed9/Project/Listeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftMiniChallenges/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftMiniChallenges/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftMiniChallenges/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftMiniChallenges/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftMiniChallenges/src/JFed9/MinecraftMiniChallenges/Listeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftMiniChallenges/src/JFed9/MinecraftMiniChallenges/Listeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +27,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1m0BYXpjLaGR132wNBepUEOBEyf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -27,7 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MinecraftMiniChallenges" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -63,21 +75,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608621481343">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="662" y="415" key="new project wizard" timestamp="1641885088940">
+      <screen x="0" y="0" width="2560" height="1379" />
     </state>
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608621481343" />
-    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1608659991596">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608659991596" />
-    <state x="440" y="95" key="SettingsEditor" timestamp="1608621802635">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608621802635" />
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1608620680028">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608620680028" />
+    <state x="662" y="415" key="new project wizard/0.0.2560.1379/2560.349.1920.1019@0.0.2560.1379" timestamp="1641885088940" />
   </component>
 </project>

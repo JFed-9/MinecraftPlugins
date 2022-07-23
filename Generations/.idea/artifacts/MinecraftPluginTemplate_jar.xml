@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MinecraftPluginTemplate:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MinecraftPluginTemplate_jar</output-path>
+    <root id="archive" name="MinecraftPluginTemplate.jar">
+      <element id="module-output" name="Generations" />
+      <element id="library" level="project" name="spigot-1.18.2" />
+    </root>
+  </artifact>
+</component>

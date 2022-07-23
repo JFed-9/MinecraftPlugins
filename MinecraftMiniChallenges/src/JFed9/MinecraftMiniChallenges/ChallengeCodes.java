@@ -21,7 +21,8 @@ public class ChallengeCodes {
         GET_COPPER_BLOCK = 1016,
         ENTER_GEODE = 1017,
         GOAT_MASSACRE = 1018,
-        AXOLOTL_CAPTURE = 1019;
+        AXOLOTL_CAPTURE = 1019,
+        KILL_SALMON = 1020;
 
     //Used for a timer if needed
     //public static final int ticks_per_second = 20;

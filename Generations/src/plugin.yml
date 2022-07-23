@@ -1,0 +1,10 @@
+name: MinecraftPlugin
+main: JFed9.Generations.Main
+version: 1.0
+description: Minecraft, but after 3 deaths you start a new colony
+api-version: 1.16
+commands:
+  startGames:
+    usage: /startGames
+    aliases: ['/startGames']
+    description: Begins the game and initializes everyone to a green name
