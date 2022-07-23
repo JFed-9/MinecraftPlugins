@@ -119,8 +119,14 @@ public class PlayerManager implements CommandExecutor, Listener {
 
     public void saveAll() throws IOException {
         PrintWriter prw = new PrintWriter("ps.gen");
-        for (Map.Entry<String,ChatColor> entry : playerNames.entrySet())
-            prw.println(entry.getKey() + " " + entry.getValue());
+        for (Map.Entry<String,ChatColor> entry : playerNames.entrySet()) {
+            if (entry.getValue() == ChatColor.GREEN)
+                prw.println(entry.getKey() + " " + "Green");
+            else if (entry.getValue() == ChatColor.YELLOW)
+                prw.println(entry.getKey() + " " + "Yellow");
+            else if (entry.getValue() == ChatColor.RED)
+                prw.println(entry.getKey() + " " + "Red");
+        }
         prw.close();
         prw = new PrintWriter("uc.gen");
         for (String coord : usedCoords)
@@ -168,39 +174,48 @@ public class PlayerManager implements CommandExecutor, Listener {
 
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event) {
+        System.out.println("Respawn");
         Player p = event.getPlayer();
         String name = event.getPlayer().getName();
+        System.out.println("Changing names");
         p.setPlayerListName(playerNames.get(name) + name);
         p.setDisplayName(playerNames.get(name) + name);
-        if (!playerCoords.containsKey(name))
-            playerCoords.put(name,0);
-        int index = playerCoords.get(name);
-        if (playerNames.get(name) == ChatColor.GREEN) {
-            index += 1;
-            playerCoords.put(name, index);
-        }
-        if (usedCoords.size() == 0)
-            usedCoords.add(getNextCoords(0,0));
-        while (usedCoords.size() <= index) {
-            String last = usedCoords.get(usedCoords.size()-1);
-            usedCoords.add(getNextCoords(Integer.parseInt(last.split(" ")[0]),Integer.parseInt(last.split(" ")[1])));
-        }
-        String coords = usedCoords.get(index);
-        Block b = p.getWorld().getHighestBlockAt(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
-        p.teleport(b.getLocation());
     }
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
+        System.out.println("Death");
         String name = event.getEntity().getName();
         System.out.println(name);
         ChatColor currChatColor = playerNames.get(name);
+        System.out.println("Player: " + currChatColor);
+        System.out.println("Green: " + ChatColor.GREEN);
+        System.out.println("Yellow: " + ChatColor.YELLOW);
+        System.out.println("Red: " + ChatColor.RED);
         if (currChatColor == ChatColor.GREEN)
             currChatColor = ChatColor.YELLOW;
         else if (currChatColor == ChatColor.YELLOW)
             currChatColor = ChatColor.RED;
-        else if (currChatColor == ChatColor.RED)
+        else if (currChatColor == ChatColor.RED) {
+            System.out.println("Teleporting");
             currChatColor = ChatColor.GREEN;
+            if (!playerCoords.containsKey(name))
+                playerCoords.put(name,0);
+            int index = playerCoords.get(name);
+            index += 1;
+            playerCoords.put(name, index);
+            if (usedCoords.size() == 0)
+                usedCoords.add(getNextCoords(0,0));
+            while (usedCoords.size() <= index) {
+                String last = usedCoords.get(usedCoords.size()-1);
+                usedCoords.add(getNextCoords(Integer.parseInt(last.split(" ")[0]),Integer.parseInt(last.split(" ")[1])));
+            }
+            String coords = usedCoords.get(index);
+            System.out.println("Finding highest block");
+            Block b = event.getEntity().getWorld().getHighestBlockAt(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
+            System.out.println("Setting Spawn");
+            event.getEntity().setBedSpawnLocation(b.getLocation());
+        }
         else
             currChatColor = ChatColor.BLACK;
         playerNames.put(name, currChatColor);

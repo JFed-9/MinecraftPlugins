@@ -10,36 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="419fa094-94b3-4bf3-ab62-ea4a8fb4c55a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CustomAITest/CustomAITest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/CustomEntityZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/Listeners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/JFed9/Project/NMSUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CustomAITest/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EnchantmentRecycling/EnchantmentRecycling.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EnchantmentRecycling/src/JFed9/Project/Listeners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/artifacts/MinecraftPluginTemplate_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/libraries/spigot_1_17_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/libraries/spigot_1_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/template-meta.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/Generations.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/PlayerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Generations/src/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftOlympicJumper/MinecraftOlympicJumper.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MinecraftOlympicJumper/src/JFed9/Project/Listeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftFallingFloor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generations/out/production/Generations/JFed9/Generations/PlayerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Generations/out/production/Generations/JFed9/Generations/PlayerManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/PlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Generations/src/JFed9/Generations/PlayerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/ChallengeCodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/Listeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JFed9/MinecraftMiniChallenges/Listeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftPluginTemplate/MinecraftPluginTemplate.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
