@@ -1,0 +1,5 @@
+name: ToolSaver
+main: JFed9.ToolSaver.Main
+version: 1.0
+description: Minecraft, but your tools scream when they're fragile
+api-version: 1.16
