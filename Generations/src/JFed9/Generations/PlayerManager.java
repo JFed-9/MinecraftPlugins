@@ -2,6 +2,7 @@ package JFed9.Generations;
 
 import net.minecraft.world.level.block.state.BlockBase;
 import org.bukkit.*;
+import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.command.Command;
@@ -15,6 +16,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scoreboard.Scoreboard;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,13 +24,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
+import static org.bukkit.block.Biome.*;
+
 public class PlayerManager implements CommandExecutor, Listener {
 
     private Plugin plugin;
+
+    private Scoreboard scoreboard;
     
-    private Map<String, ChatColor> playerNames;
+    private Map<String, String> playerNames;
     private List<String> usedCoords;
-    private Map<String, Integer> playerCoords; 
+    private Map<String, Integer> playerCoords;
+
+    private final String GREEN = "VeryAlive";
+    private final String YELLOW = "KindaLiving";
+    private final String RED = "AlmostDead";
 
     private static PlayerManager instance;
     public static PlayerManager getInstance() {
@@ -44,6 +54,27 @@ public class PlayerManager implements CommandExecutor, Listener {
     
     public void initialize(Plugin plug) {
         plugin = plug;
+        try {
+            scoreboard = Bukkit.getScoreboardManager().getMainScoreboard();
+            if (scoreboard.getTeam(GREEN) == null) {
+                scoreboard.registerNewTeam(GREEN);
+                scoreboard.getTeam(GREEN).setColor(ChatColor.GREEN);
+                scoreboard.getTeam(GREEN).setAllowFriendlyFire(true);
+            }
+            if (scoreboard.getTeam(YELLOW) == null) {
+                scoreboard.registerNewTeam(YELLOW);
+                scoreboard.getTeam(YELLOW).setColor(ChatColor.YELLOW);
+                scoreboard.getTeam(YELLOW).setAllowFriendlyFire(true);
+            }
+            if (scoreboard.getTeam(RED) == null) {
+                scoreboard.registerNewTeam(RED);
+                scoreboard.getTeam(RED).setColor(ChatColor.RED);
+                scoreboard.getTeam(RED).setAllowFriendlyFire(true);
+            }
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         
         File playerStatsFile = new File("ps.gen"),
                 usedCoordsFile = new File("uc.gen"),
@@ -59,22 +90,10 @@ public class PlayerManager implements CommandExecutor, Listener {
                 while (s.hasNextLine()) {
                     String line = s.nextLine();
                     String name = line.split(" ")[0],
-                            color = line.split(" ")[1];
-                    ChatColor chatColor;
-                    switch (color) {
-                        case "Green":
-                            chatColor = ChatColor.GREEN;
-                            break;
-                        case "Yellow":
-                            chatColor = ChatColor.YELLOW;
-                            break;
-                        case "Red":
-                        default:
-                            chatColor = ChatColor.RED;
-                            break;
-                    }
-                    playerNames.put(name, chatColor);
-                    System.out.println(name + " should be " + color + " now.");
+                            team = line.split(" ")[1];
+                    playerNames.put(name, team);
+                    System.out.println(name + " should be " + team + " now.");
+                    scoreboard.getTeam(playerNames.get(name)).addEntry(name);
                 }
                 s.close();
             } catch (FileNotFoundException e) {
@@ -84,7 +103,7 @@ public class PlayerManager implements CommandExecutor, Listener {
         // Go through online players and look for any new ones
         for (Player p : Bukkit.getOnlinePlayers())
             if (p != null && !playerNames.containsKey(p.getName())) {
-                playerNames.put(Objects.requireNonNull(p.getPlayer()).getName(), ChatColor.GREEN);
+                playerNames.put(Objects.requireNonNull(p.getPlayer()).getName(), GREEN);
                 System.out.println("Found new player: " + p.getName());
             }
 
@@ -132,13 +151,8 @@ public class PlayerManager implements CommandExecutor, Listener {
     public void saveAll() throws IOException {
         System.out.println("Saving all data");
         PrintWriter prw = new PrintWriter("ps.gen");
-        for (Map.Entry<String,ChatColor> entry : playerNames.entrySet()) {
-            if (entry.getValue() == ChatColor.GREEN)
-                prw.println(entry.getKey() + " " + "Green");
-            else if (entry.getValue() == ChatColor.YELLOW)
-                prw.println(entry.getKey() + " " + "Yellow");
-            else if (entry.getValue() == ChatColor.RED)
-                prw.println(entry.getKey() + " " + "Red");
+        for (Map.Entry<String, String> entry : playerNames.entrySet()) {
+            prw.println(entry.getKey() + " " + entry.getValue());
         }
         prw.close();
         prw = new PrintWriter("uc.gen");
@@ -154,8 +168,12 @@ public class PlayerManager implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         getInstance();
-        playerNames.replaceAll((k, v) -> ChatColor.GREEN);
-        usedCoords = new LinkedList<>();
+        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+
+        playerNames.clear();
+        playerCoords.clear();
+        usedCoords.clear();
+
         Player player = Bukkit.getPlayer(commandSender.getName());
         Location location;
         if (player == null) {
@@ -164,33 +182,83 @@ public class PlayerManager implements CommandExecutor, Listener {
             location = player.getLocation();
         }
         usedCoords.add(location.getBlockX() + " " + location.getBlockZ());
-        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+
         for (Player p : Bukkit.getOnlinePlayers()) {
             System.out.println("Setting Spawn");
-            World world = location.getWorld();
-            if (world != null)
-                world.setSpawnLocation(location);
-//                world.getBlockAt(location).setType(Material.BLACK_BED);
+            if (location.getWorld() != null)
+                location.getWorld().setSpawnLocation(location);
             p.setBedSpawnLocation(location);
 
             System.out.println("Changing ChatColor");
-            p.setPlayerListName(ChatColor.GREEN + p.getName());
-            p.setDisplayName(ChatColor.GREEN + p.getName());
-            playerNames.put(p.getName(),ChatColor.GREEN);
+            playerNames.put(p.getName(), GREEN);
+            playerCoords.put(p.getName(), 0);
+            scoreboard.getTeam(GREEN).addEntry(p.getName());
         }
         return true;
     }
     
     private String getNextCoords(int x, int z) {
         Random rand = new Random();
-        int deltaX = (int) (rand.nextDouble() * 5_000 + 5_000),
-                deltaZ = (int) (rand.nextDouble() * 5_000 + 5_000);
-        if (rand.nextBoolean()) deltaX *= -1;
-        if (rand.nextBoolean()) deltaZ *= -1;
-        x += deltaX;
-        z += deltaZ;
-        int newX = (int) Math.round(deltaX);
-        int newZ = (int) Math.round(deltaZ);
+        int newX = 0, newZ = 0;
+        Set<Biome> bad = new HashSet<>();
+        bad.add(OCEAN);
+        bad.add(DEEP_OCEAN);
+        bad.add(COLD_OCEAN);
+        bad.add(DEEP_COLD_OCEAN);
+        bad.add(LUKEWARM_OCEAN);
+        bad.add(DEEP_LUKEWARM_OCEAN);
+        bad.add(FROZEN_OCEAN);
+        bad.add(DEEP_FROZEN_OCEAN);
+        bad.add(WARM_OCEAN);
+        bad.add(RIVER);
+        while ((newX == 0 && newZ == 0) || bad.contains(Bukkit.getWorlds().get(0).getBiome(newX, 60, newZ))) {
+            if (newX == 0 && newZ == 0)
+                System.out.println("Finding new Coords");
+            else {
+                switch (Bukkit.getWorlds().get(0).getBiome(newX, 60, newZ)) {
+                    case OCEAN:
+                        System.out.println("Whoops, found a Ocean");
+                        break;
+                    case DEEP_OCEAN:
+                        System.out.println("Whoops, found a Deep Ocean");
+                        break;
+                    case COLD_OCEAN:
+                        System.out.println("Whoops, found a Cold Ocean");
+                        break;
+                    case DEEP_COLD_OCEAN:
+                        System.out.println("Whoops, found a Deep Cold Ocean");
+                        break;
+                    case LUKEWARM_OCEAN:
+                        System.out.println("Whoops, found a Lukewarm Ocean");
+                        break;
+                    case DEEP_LUKEWARM_OCEAN:
+                        System.out.println("Whoops, found a Deep Lukewarm Ocean");
+                        break;
+                    case FROZEN_OCEAN:
+                        System.out.println("Whoops, found a Frozen Ocean");
+                        break;
+                    case DEEP_FROZEN_OCEAN:
+                        System.out.println("Whoops, found a Deep Frozen Ocean");
+                        break;
+                    case WARM_OCEAN:
+                        System.out.println("Whoops, found a Warm Ocean");
+                        break;
+                    case RIVER:
+                        System.out.println("Whoops, found a River");
+                    default:
+                        System.out.println("I don't know what happened");
+                }
+            }
+            int deltaX = (int) (rand.nextDouble() * 5_000 + 5_000),
+                    deltaZ = (int) (rand.nextDouble() * 5_000 + 5_000);
+            if (rand.nextBoolean()) deltaX *= -1;
+            if (rand.nextBoolean()) deltaZ *= -1;
+            x += deltaX;
+            z += deltaZ;
+            newX = Math.round(deltaX);
+            newZ = Math.round(deltaZ);
+        }
+
         String newCoords = newX + " " + newZ;
         System.out.println("newCoords: " + newCoords);
         return newCoords;
@@ -202,10 +270,7 @@ public class PlayerManager implements CommandExecutor, Listener {
         Player p = event.getPlayer();
         String name = event.getPlayer().getName();
         System.out.println("Changing names for:" + name);
-        System.out.println(p.getDisplayName() + "->" + playerNames.get(name) + name);
-        p.setPlayerListName(playerNames.get(name) + name);
-        p.setDisplayName(playerNames.get(name) + name);
-        p.setCustomName(playerNames.get(name) + name);
+        scoreboard.getTeam(playerNames.get(p.getName())).addEntry(p.getName());
     }
 
     @EventHandler
@@ -213,61 +278,54 @@ public class PlayerManager implements CommandExecutor, Listener {
         System.out.println("Death has taken another victim");
         String name = event.getEntity().getName();
         System.out.println(name);
-        ChatColor currChatColor = playerNames.get(name);
-        System.out.println("Player used to be: " + currChatColor);
-        System.out.println("Reference:");
-//        System.out.println("Green: " + ChatColor.GREEN);
-//        System.out.println("Yellow: " + ChatColor.YELLOW);
-//        System.out.println("Red: " + ChatColor.RED);
-        if (currChatColor == ChatColor.GREEN)
-            currChatColor = ChatColor.YELLOW;
-        else if (currChatColor == ChatColor.YELLOW)
-            currChatColor = ChatColor.RED;
-        else if (currChatColor == ChatColor.RED) {
-            Bukkit.broadcastMessage("A RED HAS DIED!!! Server will freeze for around 10-30 seconds.");
-            System.out.println("Changing Spawn");
-            currChatColor = ChatColor.GREEN;
-            if (!playerCoords.containsKey(name))
-                playerCoords.put(name,0);
-            int index = playerCoords.get(name);
-            index += 1;
-            playerCoords.put(name, index);
-            if (usedCoords.size() == 0)
-                usedCoords.add(getNextCoords(0,0));
-            while (usedCoords.size() <= index) {
-                String last = usedCoords.get(usedCoords.size()-1);
-                usedCoords.add(getNextCoords(Integer.parseInt(last.split(" ")[0]),Integer.parseInt(last.split(" ")[1])));
-            }
-            String coords = usedCoords.get(index);
-            System.out.println("Finding highest block");
-            Block b = event.getEntity().getWorld().getHighestBlockAt(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
-            System.out.println("Setting Spawn");
-            b.getWorld().setSpawnLocation(b.getLocation());
-//            b.getLocation().getBlock().setType(Material.BLACK_BED);
-            event.getEntity().setBedSpawnLocation(b.getLocation());
+        String currTeam = playerNames.get(name);
+        System.out.println("Player used to be: " + currTeam);
+        switch (currTeam) {
+            case GREEN:
+                playerNames.put(name, YELLOW);
+                break;
+            case YELLOW:
+                playerNames.put(name, RED);
+                break;
+            case RED:
+                // Announce Death
+                Bukkit.broadcastMessage("A RED HAS DIED! What a fool!");
+                System.out.println("Changing Spawn");
+                playerNames.put(name, GREEN);
+
+                // Increment Death Count
+                int index = playerCoords.getOrDefault(name,0);
+                index += 1;
+                playerCoords.put(name, index);
+
+                // Find new Spawn
+                if (usedCoords.size() == 0) {  // This shouldn't happen, since we should have already started the game
+                    String coords = getNextCoords(0, 0);
+                    usedCoords.add(coords);
+                }
+                while (usedCoords.size() <= index) {
+                    String last = usedCoords.get(usedCoords.size()-1);
+                    usedCoords.add(getNextCoords(Integer.parseInt(last.split(" ")[0]),Integer.parseInt(last.split(" ")[1])));
+                }
+                String coords = usedCoords.get(index);
+                int x = Integer.parseInt(coords.split(" ")[0]);
+                int y = 256;
+                int z = Integer.parseInt(coords.split(" ")[1]);
+                System.out.println("Setting Spawn");
+                event.getEntity().getWorld().setSpawnLocation(x,y,z);
+                event.getEntity().setBedSpawnLocation(event.getEntity().getWorld().getSpawnLocation());
+                break;
+            default:
+                playerNames.put(name, GREEN);
         }
-        else
-            currChatColor = ChatColor.BLUE;
-        System.out.println("Setting new color");
-        playerNames.put(name, currChatColor);
-        System.out.println("Done");
     }
 
     @EventHandler
     public void onLogin(PlayerLoginEvent event) {
         System.out.println("Player has joined");
-        if (playerNames.containsKey(event.getPlayer().getName()))
-            System.out.println("Player " + event.getPlayer().getName() + " should be " + playerNames.get(event.getPlayer().getName()));
-        event.getPlayer().setDisplayName(playerNames.getOrDefault(event.getPlayer().getName(), ChatColor.GREEN) + event.getPlayer().getName());
-        event.getPlayer().setPlayerListName(playerNames.getOrDefault(event.getPlayer().getName(), ChatColor.GREEN) + event.getPlayer().getName());
+        String name = event.getPlayer().getName();
+        playerNames.put(name, playerNames.getOrDefault(name, GREEN));
+        scoreboard.getTeam(playerNames.get(name)).addEntry(name);
     }
-
-//    @EventHandler
-//    public void protectBeds(BlockBreakEvent event) {
-//        if (event.getBlock().getType().equals(Material.BLACK_BED)) {
-//            event.setCancelled(true);
-//            event.getPlayer().sendMessage("This bed cannot be destroyed. You fool");
-//        }
-//    }
     
 }
